@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.sql.Savepoint;
  
 /**
  * A utility that downloads a file from a URL.
@@ -21,12 +22,12 @@ public class HttpDownloadUtility {
      * @param saveDir path of the directory to save the file
      * @throws IOException
      */
-    public static void downloadFile(String fileURL, String saveDir)
+    public static File downloadFile(String fileURL, String saveDir)
             throws IOException {
         URL url = new URL(fileURL);
         HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
         int responseCode = httpConn.getResponseCode();
- 
+        File file = null;
         // always check HTTP response code first
         if (responseCode == HttpURLConnection.HTTP_OK) {
             String fileName = "";
@@ -55,9 +56,9 @@ public class HttpDownloadUtility {
             // opens input stream from the HTTP connection
             InputStream inputStream = httpConn.getInputStream();
             String saveFilePath = saveDir + File.separator + fileName;
-             
+            file = new File(saveFilePath); 
             // opens an output stream to save into file
-            FileOutputStream outputStream = new FileOutputStream(saveFilePath);
+            FileOutputStream outputStream = new FileOutputStream(file);
  
             int bytesRead = -1;
             byte[] buffer = new byte[BUFFER_SIZE];
@@ -73,5 +74,6 @@ public class HttpDownloadUtility {
             System.out.println("No file to download. Server replied HTTP code: " + responseCode);
         }
         httpConn.disconnect();
+        return file;
     }
 }
