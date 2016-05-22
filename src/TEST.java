@@ -1,4 +1,9 @@
+import java.io.File;
 import java.util.List;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 
 import com.epam.vik.middleWareServece.models.Currency;
 import com.epam.vik.middleWareServece.models.Parameters;
@@ -27,6 +32,17 @@ public class TEST {
 		System.out.println(dataTypeXML);
 		System.out.println(result);
 		System.out.println();
+		
+//		JAXBContext jaxbContext;
+//		try {
+//			jaxbContext = JAXBContext.newInstance(Currency.class);
+//			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+//			Currency currency = (Currency) jaxbUnmarshaller.unmarshal(new File("C:\\CDP\\search_results.xml"));
+//			System.out.println(currency.toString());
+//		} catch (JAXBException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 
 }

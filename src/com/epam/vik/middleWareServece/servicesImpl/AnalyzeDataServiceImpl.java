@@ -7,20 +7,25 @@ import com.epam.vik.middleWareServece.models.Parameters;
 import com.epam.vik.middleWareServece.services.AnalyzeDataService;
 import com.epam.vik.middleWareServece.services.DownloadDataService;
 
+import utils.XMLParserSAX;
+
 public class AnalyzeDataServiceImpl implements AnalyzeDataService {
-	private DownloadDataService dataService;
+	private DownloadDataService downloadDataService;
+	private List<Currency> origrnalCurrencyList;
 
 	@Override
 	public List<Currency> getAnalyzedData(Parameters param) {
 		switch (param.getSelectedDownloadDataFormat()) {
 		case "xml":
-			dataService = new XMLDownloadDataServiceImpl();
+			downloadDataService = new XMLDownloadDataServiceImpl();
+			origrnalCurrencyList = XMLParserSAX.getOriginalCurrencyList();
 			break;
 		case "xls":
-			dataService = new XLSDownloadDataServiceImpl();
+			downloadDataService = new XLSDownloadDataServiceImpl();
 			break;
 		}
-		return dataService.getData(param.getDate());
+		//returndownloadDataService.getData(param.getDate());
+		return origrnalCurrencyList;
 	}
 
 }
