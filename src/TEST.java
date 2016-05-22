@@ -1,6 +1,6 @@
 import java.util.List;
 
-import com.epam.vik.middleWareServece.models.ExchangeRate;
+import com.epam.vik.middleWareServece.models.Currency;
 import com.epam.vik.middleWareServece.models.Parameters;
 import com.epam.vik.middleWareServece.services.AnalyzeDataService;
 import com.epam.vik.middleWareServece.servicesImpl.AnalyzeDataServiceImpl;
@@ -15,7 +15,7 @@ public class TEST {
 		
 		param.setSelectedDownloadDataFormat(dataTypeXLS);
 		AnalyzeDataService analyzer = new AnalyzeDataServiceImpl();
-		List <ExchangeRate> result = analyzer.getAnalyzedData(param);
+		List <Currency> result = analyzer.getAnalyzedData(param);
 		System.out.println(dataTypeXLS);
 		System.out.println(result);
 		System.out.println();

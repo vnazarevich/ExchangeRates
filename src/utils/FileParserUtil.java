@@ -7,11 +7,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 
-import com.epam.vik.middleWareServece.models.ExchangeRate;
+import com.epam.vik.middleWareServece.models.Currency;
 
 public class FileParserUtil {
 	private String fileContent;
-	public List<ExchangeRate> createOriginalDataList(File file) {
+	public List<Currency> createOriginalDataList(File file) {
 		parseFile(file);
 		createListResult();
 
