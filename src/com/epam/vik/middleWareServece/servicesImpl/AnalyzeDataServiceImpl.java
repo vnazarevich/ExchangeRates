@@ -22,9 +22,9 @@ public class AnalyzeDataServiceImpl implements AnalyzeDataService {
 			break;
 		case "xls":
 			downloadDataService = new XLSDownloadDataServiceImpl();
+			origrnalCurrencyList = downloadDataService.getData(param.getDate());
 			break;
 		}
-		//returndownloadDataService.getData(param.getDate());
 		return origrnalCurrencyList;
 	}
 
