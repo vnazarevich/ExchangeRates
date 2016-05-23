@@ -15,9 +15,11 @@ public class AnalyzeDataServiceImpl implements AnalyzeDataService {
 
 	@Override
 	public List<Currency> getAnalyzedData(Parameters param) {
+		String date = param.getDate();
 		switch (param.getSelectedDownloadDataFormat()) {
 		case "xml":
 			downloadDataService = new XMLDownloadDataServiceImpl();
+			downloadDataService.getData(date);
 			origrnalCurrencyList = XMLParserSAX.getOriginalCurrencyList();
 			break;
 		case "xls":

@@ -17,6 +17,7 @@ public class TEST {
 		String dataTypeXLS = "xls";
 		String dataTypeXML = "xml"; 
 		Parameters param = new Parameters();
+		param.setDate("13.05.2016");
 		
 		param.setSelectedDownloadDataFormat(dataTypeXLS);
 		AnalyzeDataService analyzer = new AnalyzeDataServiceImpl();
