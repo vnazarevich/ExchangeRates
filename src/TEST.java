@@ -1,18 +1,19 @@
-import java.io.File;
 import java.util.List;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
 
 import com.epam.vik.middleWareServece.models.Currency;
 import com.epam.vik.middleWareServece.models.Parameters;
 import com.epam.vik.middleWareServece.services.AnalyzeDataService;
 import com.epam.vik.middleWareServece.servicesImpl.AnalyzeDataServiceImpl;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
-
+@Path("/test")
 public class TEST {
-
+	
+	@GET
+	@Path("/main")
 	public static void main(String[] args) {
 		String dataTypeXLS = "xls";
 		String dataTypeXML = "xml"; 
