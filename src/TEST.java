@@ -14,7 +14,8 @@ public class TEST {
 	
 	@GET
 	@Path("/main")
-	public static void main(String[] args) {
+	//public static void main(String[] args) {
+		public static List<Currency> main() {
 		String dataTypeXLS = "xls";
 		String dataTypeXML = "xml"; 
 		Parameters param = new Parameters();
@@ -34,6 +35,7 @@ public class TEST {
 		System.out.println(dataTypeXML);
 		System.out.println(result);
 		System.out.println();
+		return result;
 		
 //		JAXBContext jaxbContext;
 //		try {
